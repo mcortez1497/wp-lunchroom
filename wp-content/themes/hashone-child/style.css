@@ -72,21 +72,19 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 .lr-channel-wrapper {
   display: inline-block;
-  border: solid 1px #000000;
   padding: 0px 26px;
 }
 
 .lr-channel {
-  border: solid 2px #FFFFFF;
 }
 .lr-channel.disabled {
-  border: solid 2px #808080;
 }
 
 .lr-channel img {
   height: 90px;
   width: 160px;
   border: solid 1px #000000;
+  outline: solid 2px #FFFFFF;
 }
 .lr-channel.disabled img {
     -webkit-filter: grayscale(100%);
@@ -95,4 +93,5 @@ Use it to make something cool, have fun, and share what you've learned with othe
         -ms-filter: grayscale(100%);
             filter: grayscale(100%);
            opacity: 0.6
+           outline: solid 2px #808080;
 }
