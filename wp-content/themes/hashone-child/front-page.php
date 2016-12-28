@@ -60,15 +60,14 @@ if(is_array($hashone_page_array)){
 
               $html = "<div class='lr-twitch-player'>"
                     . "  <div class='lr-twitch-video'>"
-                    . "    <iframe src='http://player.twitch.tv/?channel=" . $streams[0]->channel->name . "' height='270' width='480'"
+                    . "    <iframe src='http://player.twitch.tv/?channel=" . $streams[0]->channel->name . "' height='360' width='640'"
                     . "            frameborder='0' scrolling='no' allowfullscreen='false'></iframe>"
-                    . "  </div>"
-                    . "  <div class='lr-twitch-description'>"
-                    . "    <span class='lr-player-title'>" . $streams[0]->channel->name . "</span>"
                     . "  </div>"
                     . "</div>"
                     . "<div class='lr-channels'>"
-                    . "<div class='lr-channel'><img src=" .$streams[0]->preview->small . " alt='Stream' height='45' width='80' /></div>"
+                    . "<div class='lr-channel-wrapper'><div class='lr-channel'><img src=" .$streams[0]->preview->medium . " alt='Stream' /></div></div>"
+                    . "<div class='lr-channel-wrapper'><div class='lr-channel disabled'><img src=" .$streams[0]->preview->medium . " alt='Stream' /></div></div>"
+                    . "<div class='lr-channel-wrapper'><div class='lr-channel disabled'><img src=" .$streams[0]->preview->medium . " alt='Stream' /></div></div>"
                     . "</div>";
 
               echo $html;
