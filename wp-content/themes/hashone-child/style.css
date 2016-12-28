@@ -36,11 +36,12 @@ Use it to make something cool, have fun, and share what you've learned with othe
   top: 100px;
   z-index: 10;
   width: 100%;
+  text-align: center
 }
 
 .lr-twitch-player {
   margin: auto;
-  width: 660px;
+  /*width: 900px;*/
   background-color: rgba(0,0,0,.45);
 }
 
@@ -64,34 +65,73 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 .lr-channels {
-  width: 660px;
-  margin: auto;
-  text-align: center;
-  background-color: rgba(0,0,0,.45);
+  padding: 10px 0px;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .lr-channel-wrapper {
-  display: inline-block;
-  padding: 0px 26px;
+  padding: 12px 0px;
 }
 
 .lr-channel {
-}
-.lr-channel.disabled {
+  padding: 3px;
 }
 
 .lr-channel img {
-  height: 90px;
-  width: 160px;
+  display: inline-block;
+  height: 68px;
+  width: 120px;
   border: solid 1px #000000;
-  outline: solid 2px #FFFFFF;
 }
-.lr-channel.disabled img {
+.lr-channel img {
+  outline: solid 2px #808080;
+  opacity: 0.6
     -webkit-filter: grayscale(100%);
        -moz-filter: grayscale(100%);
          -o-filter: grayscale(100%);
         -ms-filter: grayscale(100%);
             filter: grayscale(100%);
-           opacity: 0.6
-           outline: solid 2px #808080;
+}
+.lr-channel.active img {
+  outline: solid 2px #FFFFFF;
+  opacity: 1;
+    -webkit-filter: grayscale(0%);
+       -moz-filter: grayscale(0%);
+         -o-filter: grayscale(0%);
+        -ms-filter: grayscale(0%);
+            filter: grayscale(0%);
+}
+
+.lr-channel-description {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+  margin-left: 8px;
+  color: #FFFFFF;
+  font-size: 11px;
+  width: 200px;
+}
+
+.lr-channel .lr-channel-user {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: .8;
+}
+.lr-channel.active .lr-channel-user {
+  color: #00FF00;
+}
+
+.lr-channel-playing {
+  color: #b19dd8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lr-channel-status {
+  padding-top: 12px;
+  overflow: hidden;
+  height: 48px;
 }
