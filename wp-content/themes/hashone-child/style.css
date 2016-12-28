@@ -1,0 +1,20 @@
+/*
+Theme Name: HashOne Child
+Theme URI: https://hashthemes.com/wordpress-theme/hashone/
+Author: Michael Cortez based on HashOne by HashThemes
+Author URI: https://hashthemes.com
+Description: HashOne Child Theme
+Template: HashOne
+Version: 0.0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Text Domain: hashone-child
+Tags: one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, full-width-template, theme-options, threaded-comments, translation-ready, blog, e-commerce, portfolio
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+.hs-slide-caption {
+  display: none;
+}
