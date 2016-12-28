@@ -43,6 +43,7 @@ if(is_array($hashone_page_array)){
 
   					<?php
   						$url = 'https://api.twitch.tv/kraken/streams/followed';
+              // $url = 'https://api.twitch.tv/kraken/search/streams?query=Magic:%20The%20Gathering';
 
   						$ch = curl_init($url);
   						curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -63,48 +64,69 @@ if(is_array($hashone_page_array)){
                     . "    <iframe src='http://player.twitch.tv/?channel=" . $streams[0]->channel->name . "' height='349' width='620'"
                     . "            frameborder='0' scrolling='no' allowfullscreen='false'></iframe>"
                     . "  </div>"
-                    . "  <div class='lr-channels'>"
-                    . "    <div class='lr-channel-wrapper'>"
-                    . "      <div class='lr-channel active'>"
-                    . "        <img src=" .$streams[0]->preview->medium . " alt='Stream' />"
-                    . "        <div class='lr-channel-description'>"
-                    . "         <div class='lr-channel-user'>" . $streams[0]->channel->name . "</div>"
-                    . "         <div class='lr-channel-playing'>playing " . $streams[0]->channel->game . "</div>"
-                    . "         <div class='lr-channel-status'>" . $streams[0]->channel->status . "</div>"
-                    . "        </div>"
-                    . "      </div>"
-                    . "    </div>"
-                    . "    <div class='lr-channel-wrapper'>"
-                    . "      <div class='lr-channel'>"
-                    . "        <img src=" .$streams[0]->preview->medium . " alt='Stream' />"
-                    . "        <div class='lr-channel-description'>"
-                    . "         <div class='lr-channel-user'>" . $streams[0]->channel->name . "</div>"
-                    . "         <div class='lr-channel-playing'>playing " . $streams[0]->channel->game . "</div>"
-                    . "         <div class='lr-channel-status'>" . $streams[0]->channel->status . "</div>"
-                    . "        </div>"
-                    . "      </div>"
-                    . "    </div>"
-                    . "    <div class='lr-channel-wrapper'>"
-                    . "      <div class='lr-channel'>"
-                    . "        <img src=" .$streams[0]->preview->medium . " alt='Stream' />"
-                    . "        <div class='lr-channel-description'>"
-                    . "         <div class='lr-channel-user'>" . $streams[0]->channel->name . "</div>"
-                    . "         <div class='lr-channel-playing'>playing " . $streams[0]->channel->game . "</div>"
-                    . "         <div class='lr-channel-status'>" . $streams[0]->channel->status . "</div>"
-                    . "        </div>"
-                    . "      </div>"
-                    . "    </div>"
-                    . "  </div>"
-                    . "</div>";
+                    . "  <div class='lr-channels'>";
+
+  						foreach ($streams as $key=>$stream) {
+                $html .= " <div class='lr-channel-wrapper'>"
+                      . "      <div class='lr-channel " . ($key == 0 ? "active" : "") . "'>"
+                      . "        <img src=" .$stream->preview->medium . " alt='Stream' />"
+                      . "        <div class='lr-channel-description'>"
+                      . "         <div class='lr-channel-user'>" . $stream->channel->name . "</div>"
+                      . "         <div class='lr-channel-playing'>playing " . $stream->channel->game . "</div>"
+                      . "         <div class='lr-channel-status'>" . $stream->channel->status . "</div>"
+                      . "        </div>"
+                      . "      </div>"
+                      . "    </div>";
+              }
+
+              $html .= "  </div>"
+                     . "</div>";
+
+                    // . "    <div class='lr-channel-wrapper'>"
+                    // . "      <div class='lr-channel active'>"
+                    // . "        <img src=" .$streams[0]->preview->medium . " alt='Stream' />"
+                    // . "        <div class='lr-channel-description'>"
+                    // . "         <div class='lr-channel-user'>" . $streams[0]->channel->name . "</div>"
+                    // . "         <div class='lr-channel-playing'>playing " . $streams[0]->channel->game . "</div>"
+                    // . "         <div class='lr-channel-status'>" . $streams[0]->channel->status . "</div>"
+                    // . "        </div>"
+                    // . "      </div>"
+                    // . "    </div>"
+                    // . "    <div class='lr-channel-wrapper'>"
+                    // . "      <div class='lr-channel'>"
+                    // . "        <img src=" .$streams[1]->preview->medium . " alt='Stream' />"
+                    // . "        <div class='lr-channel-description'>"
+                    // . "         <div class='lr-channel-user'>" . $streams[0]->channel->name . "</div>"
+                    // . "         <div class='lr-channel-playing'>playing " . $streams[0]->channel->game . "</div>"
+                    // . "         <div class='lr-channel-status'>" . $streams[0]->channel->status . "</div>"
+                    // . "        </div>"
+                    // . "      </div>"
+                    // . "    </div>"
+                    // . "    <div class='lr-channel-wrapper'>"
+                    // . "      <div class='lr-channel'>"
+                    // . "        <img src=" .$streams[2]->preview->medium . " alt='Stream' />"
+                    // . "        <div class='lr-channel-description'>"
+                    // . "         <div class='lr-channel-user'>" . $streams[0]->channel->name . "</div>"
+                    // . "         <div class='lr-channel-playing'>playing " . $streams[0]->channel->game . "</div>"
+                    // . "         <div class='lr-channel-status'>" . $streams[0]->channel->status . "</div>"
+                    // . "        </div>"
+                    // . "      </div>"
+                    // . "    </div>"
+                    // . "    <div class='lr-channel-wrapper'>"
+                    // . "      <div class='lr-channel'>"
+                    // . "        <img src=" .$streams[3]->preview->medium . " alt='Stream' />"
+                    // . "        <div class='lr-channel-description'>"
+                    // . "         <div class='lr-channel-user'>" . $streams[0]->channel->name . "</div>"
+                    // . "         <div class='lr-channel-playing'>playing " . $streams[0]->channel->game . "</div>"
+                    // . "         <div class='lr-channel-status'>" . $streams[0]->channel->status . "</div>"
+                    // . "        </div>"
+                    // . "      </div>"
+                    // . "    </div>"
+                    // . "  </div>"
+                    // . "</div>";
 
               echo $html;
 
-              // echo "<img class='lr-player-featured' src='", $stream->preview->medium, "' alt='test' />";
-
-  						// foreach ($streams as $stream) {
-  						// 	echo $stream->channel->name, "\n";
-  						// 	echo "<img src='", $stream->preview->medium, "' alt='test' />";
-  						// }
   					?>
 
   					</div>
