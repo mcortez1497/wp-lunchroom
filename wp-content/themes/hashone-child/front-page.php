@@ -170,6 +170,7 @@ if(is_array($hashone_page_array)){
 			<?php 
 			for( $i = 1; $i < 5; $i++ ){
 				$hashone_featured_page_id = get_theme_mod('hashone_featured_page'.$i, $hashone_page); 
+  			$hashone_featured_page_link = get_theme_mod('hashone_featured_page_link'.$i, __( '', 'hashone')); 
 				$hashone_featured_page_icon = get_theme_mod('hashone_featured_page_icon'.$i, 'fa-bell');
 			
 			if($hashone_featured_page_id){
@@ -182,7 +183,7 @@ if(is_array($hashone_page_array)){
 					<div class="hs-featured-post hs-featured-post<?php echo $i; ?> wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="<?php echo $hashone_wow_delay; ?>s">
 						<div class="hs-featured-icon"><i class="fa <?php echo esc_attr($hashone_featured_page_icon); ?>"></i></div>
 						<h3>
-						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+						<a href="<?php echo ($hashone_featured_page_link != '' ? $hashone_featured_page_link : the_permalink()); ?>"><?php the_title(); ?></a>
 						</h3>
 						<div class="hs-featured-excerpt">
 						<?php 

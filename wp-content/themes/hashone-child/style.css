@@ -31,15 +31,16 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 
 #hs-home-slider-section .bx-wrapper .bx-viewport {
-  max-height: 540px;
+  max-height: 620px;
 }
 
 
 .lr-twitch-wrapper {
   position: absolute;
-  top: 80px;
+  top: 140px;
   z-index: 10;
   width: 100%;
+  min-width: 1000px;
   text-align: center
 }
 

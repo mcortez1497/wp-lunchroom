@@ -557,6 +557,29 @@ function hashone_customize_register( $wp_customize ) {
 		)
 	);
 
+
+  // AN EDIT
+  $wp_customize->add_setting(
+    'hashone_featured_page_link'.$i,
+		array(
+			'default'			=> __( '', 'hashone'),
+			'sanitize_callback' => 'hashone_sanitize_text',
+			'transport'         => 'postMessage'
+		)
+  );
+
+  $wp_customize->add_control(
+    'hashone_featured_page_link'.$i,
+		array(
+			'settings'		=> 'hashone_featured_page_link'.$i,
+			'section'		=> 'hashone_featured_sec',
+			'type'			=> 'text',
+			'label'			=> __( 'Link', 'hashone' )
+		)
+  );
+  // AN EDIT
+
+
 	$wp_customize->add_setting(
 		'hashone_featured_page_icon'.$i,
 		array(
