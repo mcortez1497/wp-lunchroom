@@ -15,7 +15,7 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
-/* Commit these in a header style commit 
+/* Header */
 #hs-masthead {
   height: 58px;
 }
@@ -23,16 +23,21 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .hs-toggle-menu {
   top: 6px;
 }
-*/
+
+.hs-main-navigation a {
+  line-height: 55px;
+}
+
+
 
 #hs-home-slider-section .bx-wrapper .bx-viewport {
-  max-height: 600px;
+  max-height: 540px;
 }
 
 
 .lr-twitch-wrapper {
   position: absolute;
-  top: 100px;
+  top: 80px;
   z-index: 10;
   width: 100%;
   text-align: center
