@@ -59,15 +59,19 @@ if(is_array($hashone_page_array)){
   						$json = json_decode($data);
   						$streams = $json->streams;
 
-              $html = "<div class='lr-twitch-player'>"
-                    . "  <div class='lr-twitch-video'>"
-                    . "    <iframe src='http://player.twitch.tv/?channel=" . $streams[0]->channel->name . "' height='349' width='620'"
-                    . "            frameborder='0' scrolling='no' allowfullscreen='false'></iframe>"
-                    . "  </div>"
-                    . "  <div class='lr-channels'>";
+              $html = "<div class='lr-twitch-player'>";
+
+              if ( !wp_is_mobile() ) {
+                $html .= "  <div class='lr-twitch-video'>"
+                      .  "    <iframe src='http://player.twitch.tv/?channel=" . $streams[0]->channel->name . "' height='349' width='620'"
+                      .  "            frameborder='0' scrolling='no' allowfullscreen='false'></iframe>"
+                      .  "  </div>";
+              }
+
+              $html .= "<div class='lr-channels'>";
 
   						foreach ($streams as $key=>$stream) {
-                $html .= "<div class='lr-channel " . ($key == 0 ? "active" : "") . "'>"
+                $html .= "<div class='lr-channel " . ($key == 0 && !wp_is_mobile() ? "active" : "") . "'>"
                       .  "  <img src=" .$stream->preview->medium . " alt='Stream' />"
                       .  "  <div class='lr-channel-description'>"
                       .  "    <div class='lr-channel-user'>" . $stream->channel->name . "</div>"
