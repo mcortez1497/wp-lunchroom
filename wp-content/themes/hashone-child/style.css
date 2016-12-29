@@ -15,6 +15,154 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
-.hs-slide-caption {
-  display: none;
+/* Header */
+#hs-masthead {
+  height: 58px;
+}
+
+.hs-toggle-menu {
+  top: 6px;
+}
+
+.hs-main-navigation a {
+  line-height: 55px;
+}
+
+
+
+#hs-home-slider-section .bx-wrapper .bx-viewport {
+  max-height: 540px;
+}
+
+
+.lr-twitch-wrapper {
+  position: absolute;
+  top: 80px;
+  z-index: 10;
+  width: 100%;
+  text-align: center
+}
+
+.lr-twitch-player {
+  margin: auto;
+  background-color: rgba(0,0,0,.45);
+}
+
+.lr-twitch-video {
+  display: inline-block;
+  padding: 10px;
+}
+
+.lr-player-title {
+  color: #FFFFFF;
+}
+
+.lr-channels {
+  height: 355px;
+  overflow-y: auto;
+  margin: 10px 0px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.lr-channels::-webkit-scrollbar {
+  background-color: #333;
+  width: .5em;
+}
+.lr-channels::-webkit-scrollbar-thumb {
+  background-color: #666;
+}
+
+.lr-channel {
+  padding: 15px 3px;
+}
+
+.lr-channel img {
+  display: inline-block;
+  height: 68px;
+  width: 120px;
+  border: solid 1px #000000;
+  outline: solid 2px #FFFFFF;
+}
+.lr-channel:not(.active) img {
+  cursor: pointer;
+  outline: solid 2px #808080;
+  opacity: 0.6
+     -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+          -o-filter: grayscale(100%);
+         -ms-filter: grayscale(100%);
+             filter: grayscale(100%);
+}
+
+.lr-channel-description {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+  margin-left: 8px;
+  color: #FFFFFF;
+  font-size: 11px;
+  width: 200px;
+}
+
+.lr-channel .lr-channel-user {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: .8;
+}
+.lr-channel:not(.active) .lr-channel-user:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.lr-channel.active .lr-channel-user {
+  color: #00FF00;
+}
+
+.lr-channel-playing {
+  color: #b19dd8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lr-channel-status {
+  padding-top: 12px;
+  overflow: hidden;
+  height: 48px;
+}
+
+
+
+@media only screen and (max-device-width: 780px) {
+  .lr-twitch-wrapper {
+    top: 0;
+    height: 100%;
+  }
+
+  .lr-twitch-player {
+    height: 100%;
+  }
+
+  .lr-twitch-video {
+    display: none;
+  }
+
+  .lr-channels {
+    height: 100%;
+  }
+
+  .lr-channel:not(.active) img {
+     -webkit-filter: grayscale(0%);
+        -moz-filter: grayscale(0%);
+          -o-filter: grayscale(0%);
+         -ms-filter: grayscale(0%);
+             filter: grayscale(0%);
+  }
+}
+
+@media only screen and (max-device-width: 320px) {
+  .lr-channel-description {
+    width: 175px;
+  }
 }
