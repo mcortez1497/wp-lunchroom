@@ -23,24 +23,24 @@ jQuery(function($){
   };
 
 
-  $(".lr-channel-user").on("click", function() {
-    setChannelAsActive(this);
-    var channelName = $(this)[0].innerText;
+  $(".lr-channel:not(.active) .lr-channel-user").on("click", function() {
+    var channelName = $(this)[0].innerHTML;
 
-    if (isDeviceMobile) {
+    if (isDeviceMobile()) {
       window.open("https://www.twitch.tv/" + channelName);
     } else {
+      setChannelAsActive(this);
       setTwitchChannel(channelName);
     }
   });
 
-  $(".lr-channel img").on("click", function() {
-    setChannelAsActive(this);
-    var channelName = $(this).closest(".lr-channel").find(".lr-channel-user")[0].innerText;
+  $(".lr-channel:not(.active) img").on("click", function() {
+    var channelName = $(this).closest(".lr-channel").find(".lr-channel-user")[0].innerHTML;
 
-    if (isDeviceMobile) {
+    if (isDeviceMobile()) {
       window.open("https://www.twitch.tv/" + channelName);
     } else {
+      setChannelAsActive(this);
       setTwitchChannel(channelName);
     }
   });

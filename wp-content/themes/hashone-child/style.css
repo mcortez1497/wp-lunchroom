@@ -15,6 +15,7 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
+
 /* Header */
 #hs-masthead {
   height: 58px;
@@ -29,17 +30,53 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 
+.lr-menu-login {
+  padding-left: 20px;
+  margin-right: 24px;
+}
+.lr-menu-login .lr-menu-login-icon {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+.lr-menu-login .lr-menu-login-icon.lr-login {
+  top: 16px;
+  left: 66px;
+} 
+.lr-menu-login .lr-menu-login-icon.lr-logout {
+  top: 16px;
+  left: 80px;
+} 
 
-#hs-home-slider-section .bx-wrapper .bx-viewport {
-  max-height: 540px;
+.lr-menu-divider .lr-divider {
+  border-right: solid 2px white;
+  position: absolute;
+  height: 25px;
+  top: 15px;
+  padding-left: 10px;
 }
 
 
+/* ID Overrides */
+#hs-home-slider-section .bx-wrapper .bx-viewport {
+  max-height: 620px;
+}
+
+#hs-featured-post-section {
+  background-color: #FFFFFF;
+}
+
+
+/* Twitch Player */
 .lr-twitch-wrapper {
   position: absolute;
-  top: 80px;
+  top: 140px;
   z-index: 10;
   width: 100%;
+  min-width: 1000px;
   text-align: center
 }
 
@@ -58,11 +95,13 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 .lr-channels {
+  width: 360px;
   height: 355px;
   overflow-y: auto;
   margin: 10px 0px;
   display: inline-block;
   vertical-align: top;
+  text-align: left;
 }
 
 .lr-channels::-webkit-scrollbar {
@@ -75,6 +114,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 .lr-channel {
   padding: 15px 3px;
+  min-width: 330px;
 }
 
 .lr-channel img {
@@ -133,11 +173,29 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 
+/* Mobile Optimizations */
+@media screen and (max-width: 1180px) {
+  .hs-main-navigation li.lr-menu-divider {
+    display: none;
+  }
+
+  .hs-main-navigation li.lr-menu-login {
+    padding-left: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .hs-main-navigation li.lr-menu-login a .lr-menu-login-icon {
+    display: none;
+  } 
+}
 
 @media only screen and (max-device-width: 780px) {
   .lr-twitch-wrapper {
     top: 0;
+    min-width: 1px;
     height: 100%;
+    width: 100%;
   }
 
   .lr-twitch-player {
@@ -150,6 +208,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
   .lr-channels {
     height: 100%;
+    width: 100%;
   }
 
   .lr-channel:not(.active) img {
@@ -163,6 +222,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 @media only screen and (max-device-width: 320px) {
   .lr-channel-description {
-    width: 175px;
+    width: 160px;
   }
 }

@@ -67,6 +67,7 @@ function hashone_dynamic_styles(){
 	echo '.hs-service-left-bg{ background-image:url(' .esc_url($hashone_service_left_bg). ');}';
 	echo '#hs-counter-section{ background-image:url(' .esc_url($hashone_counter_bg). ');}';
 	echo '#hs-contact-section{ background-image:url(' .esc_url($hashone_contact_bg). ');}';
+
 	echo "</style>";
 }
 

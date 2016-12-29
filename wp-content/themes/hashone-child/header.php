@@ -16,7 +16,7 @@
 
 <?php wp_head(); ?>
 
-<script type="text/javascript" src="wp-content/themes/hashone-child/js/twitch-player.js"></script>
+<script type="text/javascript" src="/wp-content/themes/hashone-child/js/twitch-player.js"></script>
 
 </head>
 
@@ -45,14 +45,33 @@
 
 			<nav id="hs-site-navigation" class="hs-main-navigation">
 				<div class="hs-toggle-menu"><span></span></div>
-				<?php 
-				wp_nav_menu( array( 
-					'theme_location' => 'primary', 
-					'container_class' => 'hs-menu' ,
-					'menu_class' => 'hs-clearfix',
-					'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-				) ); 
-				?>
+
+				<div class="hs-menu">
+					<ul id="menu-navigation" class="hs-clearfix">
+
+					<?php 
+					wp_nav_menu( array( 
+						'theme_location' => 'primary', 
+						'container' => false,
+						'items_wrap' => '%3$s',
+					) ); 
+					?>
+
+					<!-- TODO: Abstract -->
+					<li class="lr-menu-divider">
+						<div class="lr-divider"></div>
+					</li>
+					<li id="menu-item-login" class="lr-menu-login menu-item menu-item-type-custom menu-item-object-custom">
+						<?php if ( is_user_logged_in() ) : ?>
+						<a href="<?php echo wp_logout_url( home_url() ); ?>">Log Out <div class="lr-menu-login-icon lr-logout"></div></a>
+						<?php else : ?>
+						<a href="<?php echo esc_url(get_site_url()) . "/wp-login.php?action=wordpress_social_authenticate&mode=login&provider=TwitchTV&redirect_to=" . esc_url(get_site_url()); ?>">Log In <div class="lr-menu-login-icon lr-login"></div></a>
+						<?php endif; ?>
+					</li>
+
+					</ul>
+				</div>
+
 			</nav><!-- #hs-site-navigation -->
 		</div>
 	</header><!-- #hs-masthead -->

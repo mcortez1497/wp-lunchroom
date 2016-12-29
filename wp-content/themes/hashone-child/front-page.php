@@ -1,3 +1,5 @@
+<!-- TODO: THIS ISNT NEEDED WITH STATIC PAGES. DELETE WHEN READY! -->
+
 <?php
 /**
  * Front Page
@@ -170,7 +172,9 @@ if(is_array($hashone_page_array)){
 			<?php 
 			for( $i = 1; $i < 5; $i++ ){
 				$hashone_featured_page_id = get_theme_mod('hashone_featured_page'.$i, $hashone_page); 
+  			$hashone_featured_page_link = get_theme_mod('hashone_featured_page_link'.$i, __( '', 'hashone')); 
 				$hashone_featured_page_icon = get_theme_mod('hashone_featured_page_icon'.$i, 'fa-bell');
+        $hashone_featured_page_img = get_theme_mod('hashone_featured_page_img'.$i, '' );
 			
 			if($hashone_featured_page_id){
 				$args = array( 'page_id' => $hashone_featured_page_id );
@@ -180,9 +184,15 @@ if(is_array($hashone_page_array)){
 					$hashone_wow_delay = ($i/2)-1+0.5;
 				?>
 					<div class="hs-featured-post hs-featured-post<?php echo $i; ?> wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="<?php echo $hashone_wow_delay; ?>s">
-						<div class="hs-featured-icon"><i class="fa <?php echo esc_attr($hashone_featured_page_icon); ?>"></i></div>
+						<div class="hs-featured-icon icon-color-<?php echo $i; ?>">
+              <?php if($hashone_featured_page_img != '') { ?>
+              <img src="<?php echo $hashone_featured_page_img ?>" alt="Community Icon" />
+              <?php } else { ?>
+              <i class="fa <?php echo esc_attr($hashone_featured_page_icon); ?>"></i>
+              <?php } ?>
+            </div>
 						<h3>
-						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+						<a href="<?php echo ($hashone_featured_page_link != '' ? $hashone_featured_page_link : the_permalink()); ?>"><?php the_title(); ?></a>
 						</h3>
 						<div class="hs-featured-excerpt">
 						<?php 
