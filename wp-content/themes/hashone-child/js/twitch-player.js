@@ -24,7 +24,7 @@ jQuery(function($){
 
 
   $(".lr-channel:not(.active) .lr-channel-user").on("click", function() {
-    var channelName = $(this)[0].innerText;
+    var channelName = $(this)[0].innerHTML;
 
     if (isDeviceMobile()) {
       window.open("https://www.twitch.tv/" + channelName);
@@ -35,7 +35,7 @@ jQuery(function($){
   });
 
   $(".lr-channel:not(.active) img").on("click", function() {
-    var channelName = $(this).closest(".lr-channel").find(".lr-channel-user")[0].innerText;
+    var channelName = $(this).closest(".lr-channel").find(".lr-channel-user")[0].innerHTML;
 
     if (isDeviceMobile()) {
       window.open("https://www.twitch.tv/" + channelName);
