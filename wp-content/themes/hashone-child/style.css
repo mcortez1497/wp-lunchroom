@@ -30,7 +30,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 
-
 .lr-twitch-wrapper {
   position: absolute;
   top: 100px;
@@ -56,7 +55,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .lr-channels {
   height: 375px;
   overflow-y: auto;
-  padding: 10px 0px;
+  margin: 10px 0px;
   display: inline-block;
   vertical-align: top;
 }
@@ -69,12 +68,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
   background-color: #666;
 }
 
-.lr-channel-wrapper {
-  padding: 12px 0px;
-}
-
 .lr-channel {
-  padding: 3px;
+  padding: 15px 3px;
 }
 
 .lr-channel img {
