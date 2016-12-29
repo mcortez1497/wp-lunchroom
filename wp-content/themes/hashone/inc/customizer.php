@@ -580,6 +580,54 @@ function hashone_customize_register( $wp_customize ) {
   // AN EDIT
 
 
+  // AN EDIT
+  $wp_customize->add_setting(
+    'hashone_featured_page_color'.$i,
+		array(
+			'default'			=> '#EE3B24',
+      'sanitize_callback' => 'sanitize_hex_color',
+			// 'transport'         => 'postMessage'
+		)
+  );
+
+  $wp_customize->add_control(
+    new WP_Customize_Color_Control( 
+        $wp_customize,
+        'hashone_featured_page_color'.$i,
+        array(
+          'settings'		=> 'hashone_featured_page_color'.$i,
+          'section'		=> 'hashone_featured_sec',
+          'label'			=> __( 'Color', 'hashone' )
+        )
+     )
+  );
+  // AN EDIT
+
+
+  // AN EDIT
+  $wp_customize->add_setting(
+    'hashone_featured_page_img'.$i,
+    array(
+      'default'			=> '',
+      'sanitize_callback' => 'esc_url_raw'
+    )
+  );
+
+  $wp_customize->add_control(
+      new WP_Customize_Image_Control(
+          $wp_customize,
+          'hashone_featured_page_img'.$i,
+          array(
+              'label' => 'Fetaured Page Image',
+              'section' => 'hashone_featured_sec',
+              'settings' => 'hashone_featured_page_img'.$i,
+              'description' => __('Image Size: 32X32px', 'hashone')
+          )
+      )
+  );
+  // AN EDIT
+
+
 	$wp_customize->add_setting(
 		'hashone_featured_page_icon'.$i,
 		array(
