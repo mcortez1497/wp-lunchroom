@@ -1,15 +1,10 @@
-<!-- TODO: THIS ISNT NEEDED WITH STATIC PAGES. DELETE WHEN READY! -->
-
 <?php
 /**
- * Front Page
+ * Template Name: Home Page
  *
  * @package HashOne
  */
 
-if ( 'page' == get_option( 'show_on_front' ) ) {
-    include( get_page_template() );
-}else{
 get_header(); 
 
 $hashone_page = '';
@@ -35,62 +30,62 @@ if(is_array($hashone_page_array)){
 				<div class="hs-slide">
 					<div class="hs-slide-overlay"></div>
 
-  					<?php 
-  					if(has_post_thumbnail()){
-  						$hashone_slider_image = wp_get_attachment_image_src(get_post_thumbnail_id(),'full');	
-  						echo '<img alt="'.esc_attr(get_the_title()).'" src="'.esc_url($hashone_slider_image[0]).'">';
-  					} ?>
+					<?php 
+					if(has_post_thumbnail()){
+						$hashone_slider_image = wp_get_attachment_image_src(get_post_thumbnail_id(),'full');	
+						echo '<img alt="'.esc_attr(get_the_title()).'" src="'.esc_url($hashone_slider_image[0]).'">';
+					} ?>
 
-            <div class="lr-twitch-wrapper">
+					<div class="lr-twitch-wrapper">
 
-  					<?php
-  						// $url = 'https://api.twitch.tv/kraken/streams/followed';
-              $url = 'https://api.twitch.tv/kraken/search/streams?query=Magic:%20The%20Gathering';
+					<?php
+					// $url = 'https://api.twitch.tv/kraken/streams/followed';
+					$url = 'https://api.twitch.tv/kraken/search/streams?query=Magic:%20The%20Gathering';
 
-  						$ch = curl_init($url);
-  						curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  						curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-  						   'Accept: application/vnd.twitchtv.v5+json',
-   						   'Client-ID: 243x69xvxlj4lyk7juy2riu8ml30p4',
-  						   'Authorization: OAuth gpnsx385cpzbw09jmt39ibo2arqiun'
-  						));
+					$ch = curl_init($url);
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+					curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+						'Accept: application/vnd.twitchtv.v5+json',
+						'Client-ID: 243x69xvxlj4lyk7juy2riu8ml30p4',
+						'Authorization: OAuth gpnsx385cpzbw09jmt39ibo2arqiun'
+					));
 
-  						$data = curl_exec($ch);
-  						curl_close($ch);
+					$data = curl_exec($ch);
+					curl_close($ch);
 
-  						$json = json_decode($data);
-  						$streams = $json->streams;
+					$json = json_decode($data);
+					$streams = $json->streams;
 
-              $html = "<div class='lr-twitch-player'>";
+					$html = "<div class='lr-twitch-player'>";
 
-              if ( !wp_is_mobile() ) {
-                $html .= "  <div class='lr-twitch-video'>"
-                      .  "    <iframe src='http://player.twitch.tv/?channel=" . $streams[0]->channel->name . "' height='349' width='620'"
-                      .  "            frameborder='0' scrolling='no' allowfullscreen='false'></iframe>"
-                      .  "  </div>";
-              }
+					if ( !wp_is_mobile() ) {
+						$html .= "  <div class='lr-twitch-video'>"
+									.  "    <iframe src='http://player.twitch.tv/?channel=" . $streams[0]->channel->name . "' height='349' width='620'"
+									.  "            frameborder='0' scrolling='no' allowfullscreen='false'></iframe>"
+									.  "  </div>";
+					}
 
-              $html .= "<div class='lr-channels'>";
+					$html .= "<div class='lr-channels'>";
 
-  						foreach ($streams as $key=>$stream) {
-                $html .= "<div class='lr-channel " . ($key == 0 && !wp_is_mobile() ? "active" : "") . "'>"
-                      .  "  <img src=" .$stream->preview->medium . " alt='Stream' />"
-                      .  "  <div class='lr-channel-description'>"
+					foreach ($streams as $key=>$stream) {
+						$html .= "<div class='lr-channel " . ($key == 0 && !wp_is_mobile() ? "active" : "") . "'>"
+									.  "  <img src=" .$stream->preview->medium . " alt='Stream' />"
+									.  "  <div class='lr-channel-description'>"
                       .  "    <div class='lr-channel-user'>" . $stream->channel->name . "</div>"
-                      .  "    <div class='lr-channel-playing'>playing " . $stream->channel->game . "</div>"
-                      .  "    <div class='lr-channel-status'>" . $stream->channel->status . "</div>"
-                      .  "  </div>"
-                      .  "</div>";
-              }
+									.  "    <div class='lr-channel-playing'>playing " . $stream->channel->game . "</div>"
+									.  "    <div class='lr-channel-status'>" . $stream->channel->status . "</div>"
+									.  "  </div>"
+									.  "</div>";
+					}
 
-              $html .= "  </div>"
-                    .  "</div>";
+					$html .= "  </div>"
+								.  "</div>";
 
-              echo $html;
+					echo $html;
 
-  					?>
+					?>
 
-  					</div>
+					</div>
 
 				</div>
 				<?php
@@ -172,10 +167,10 @@ if(is_array($hashone_page_array)){
 			<?php 
 			for( $i = 1; $i < 5; $i++ ){
 				$hashone_featured_page_id = get_theme_mod('hashone_featured_page'.$i, $hashone_page); 
-  			$hashone_featured_page_link = get_theme_mod('hashone_featured_page_link'.$i, __( '', 'hashone')); 
+				$hashone_featured_page_link = get_theme_mod('hashone_featured_page_link'.$i, __( '', 'hashone')); 
 				$hashone_featured_page_icon = get_theme_mod('hashone_featured_page_icon'.$i, 'fa-bell');
-        $hashone_featured_page_img = get_theme_mod('hashone_featured_page_img'.$i, '' );
-			
+				$hashone_featured_page_img = get_theme_mod('hashone_featured_page_img'.$i, '' );
+
 			if($hashone_featured_page_id){
 				$args = array( 'page_id' => $hashone_featured_page_id );
 				$query = new WP_Query($args);
@@ -185,12 +180,12 @@ if(is_array($hashone_page_array)){
 				?>
 					<div class="hs-featured-post hs-featured-post<?php echo $i; ?> wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="<?php echo $hashone_wow_delay; ?>s">
 						<div class="hs-featured-icon icon-color-<?php echo $i; ?>">
-              <?php if($hashone_featured_page_img != '') { ?>
-              <img src="<?php echo $hashone_featured_page_img ?>" alt="Community Icon" />
-              <?php } else { ?>
-              <i class="fa <?php echo esc_attr($hashone_featured_page_icon); ?>"></i>
-              <?php } ?>
-            </div>
+							<?php if($hashone_featured_page_img != '') { ?>
+							<img src="<?php echo $hashone_featured_page_img ?>" alt="Community Icon" />
+							<?php } else { ?>
+							<i class="fa <?php echo esc_attr($hashone_featured_page_icon); ?>"></i>
+							<?php } ?>
+						</div>
 						<h3>
 						<a href="<?php echo ($hashone_featured_page_link != '' ? $hashone_featured_page_link : the_permalink()); ?>"><?php the_title(); ?></a>
 						</h3>
@@ -756,7 +751,5 @@ if(is_array($hashone_page_array)){
 	</div>
 </div>
 </section>
-<?php }
-
-get_footer(); 
-}
+<?php } ?>
+<?php get_footer(); ?>

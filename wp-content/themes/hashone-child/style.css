@@ -34,6 +34,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
   max-height: 620px;
 }
 
+#hs-featured-post-section {
+  background-color: #FFFFFF;
+}
+
 
 .lr-twitch-wrapper {
   position: absolute;
