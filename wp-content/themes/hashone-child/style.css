@@ -173,6 +173,12 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 
+/* Forums */
+#subscription-toggle {
+  float: right;
+}
+
+
 /* Mobile Optimizations */
 @media screen and (max-width: 1180px) {
   .hs-main-navigation li.lr-menu-divider {

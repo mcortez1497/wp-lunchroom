@@ -16,7 +16,19 @@ function my_theme_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 // END PARENT FUNCTIONS
 
+
 // BEGIN CHILD FUNCTIONS
+function lunchroom_body_classes( $classes ) {
+	//The the page is a Forum page, display no sidebar
+	if (is_bbpress()) {
+		$classes[] = esc_attr('hs_no_sidebar');
+	}
+
+	return $classes;
+}
+
+add_filter( 'body_class', 'lunchroom_body_classes' );
+
 function lunchroom_dynamic_styles(){
 	echo "<style>";
 
