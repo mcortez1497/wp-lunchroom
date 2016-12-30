@@ -36,6 +36,7 @@ if(is_array($hashone_page_array)){
 						echo '<img alt="'.esc_attr(get_the_title()).'" src="'.esc_url($hashone_slider_image[0]).'">';
 					} ?>
 
+					<!-- TODO: Abstract -->
 					<div class="lr-twitch-wrapper">
 
 					<?php

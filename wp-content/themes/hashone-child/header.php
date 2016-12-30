@@ -16,7 +16,7 @@
 
 <?php wp_head(); ?>
 
-<script type="text/javascript" src="wp-content/themes/hashone-child/js/twitch-player.js"></script>
+<script type="text/javascript" src="/wp-content/themes/hashone-child/js/twitch-player.js"></script>
 
 </head>
 
@@ -45,6 +45,21 @@
 
 			<nav id="hs-site-navigation" class="hs-main-navigation">
 				<div class="hs-toggle-menu"><span></span></div>
+
+				<!-- TODO: Abstract -->
+				<div class="lr-menu-login">
+					<ul id="menu-navigation-login" class="hs-clearfix">
+						<li class="lr-menu-divider"><div class="lr-divider"></div></li>
+						<li id="menu-item-login" class="lr-menu-item-login menu-item menu-item-type-custom menu-item-object-custom">
+							<?php if ( is_user_logged_in() ) : ?>
+							<a href="<?php echo wp_logout_url( home_url() ); ?>">Log Out <div class="lr-menu-img lr-logout"></div></a>
+							<?php else : ?>
+							<a href="<?php echo esc_url(get_site_url()) . "/wp-login.php?action=wordpress_social_authenticate&mode=login&provider=TwitchTV&redirect_to=" . esc_url(get_site_url()); ?>">Log In <div class="lr-menu-img lr-login"></div></a>
+							<?php endif; ?>
+						</li>
+					</ul>
+				</div>
+
 				<?php 
 				wp_nav_menu( array( 
 					'theme_location' => 'primary', 

@@ -15,6 +15,7 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
+
 /* Header */
 #hs-masthead {
   height: 58px;
@@ -28,8 +29,40 @@ Use it to make something cool, have fun, and share what you've learned with othe
   line-height: 55px;
 }
 
+.lr-menu-login {
+  float: right;
+}
+.lr-menu-login .lr-menu-item-login {
+  padding-left: 20px;
+  margin-right: 24px;
+}
+.lr-menu-login .lr-menu-img {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+.lr-menu-login .lr-menu-img.lr-login {
+  top: 16px;
+  left: 66px;
+} 
+.lr-menu-login .lr-menu-img.lr-logout {
+  top: 16px;
+  left: 80px;
+} 
+
+.lr-menu-divider .lr-divider {
+  border-right: solid 2px white;
+  position: absolute;
+  height: 25px;
+  top: 15px;
+  padding-left: 10px;
+}
 
 
+/* ID Overrides */
 #hs-home-slider-section .bx-wrapper .bx-viewport {
   max-height: 620px;
 }
@@ -39,6 +72,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 
+/* Twitch Player */
 .lr-twitch-wrapper {
   position: absolute;
   top: 140px;
@@ -141,7 +175,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 
-
+/* Mobile Optimizations */
 @media only screen and (max-device-width: 780px) {
   .lr-twitch-wrapper {
     top: 0;

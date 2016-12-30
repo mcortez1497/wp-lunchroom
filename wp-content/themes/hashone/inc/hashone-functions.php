@@ -67,13 +67,6 @@ function hashone_dynamic_styles(){
 	echo '.hs-service-left-bg{ background-image:url(' .esc_url($hashone_service_left_bg). ');}';
 	echo '#hs-counter-section{ background-image:url(' .esc_url($hashone_counter_bg). ');}';
 	echo '#hs-contact-section{ background-image:url(' .esc_url($hashone_contact_bg). ');}';
- 
-  for( $i = 1; $i < 5; $i++ ) {
-    $hashone_featured_page_icon_color = get_theme_mod('hashone_featured_page_color'.$i, '#EE3B24' );
-    echo '.hs-featured-icon.icon-color-' . $i . ':before { border-bottom: 25px solid ' . $hashone_featured_page_icon_color  . '; } ';
-    echo '.hs-featured-icon.icon-color-' . $i . ' { background: ' . $hashone_featured_page_icon_color  . '; } ';
-    echo '.hs-featured-icon.icon-color-' . $i . ':after { border-top: 25px solid ' . $hashone_featured_page_icon_color  . '; } ';
-  }
 
 	echo "</style>";
 }
