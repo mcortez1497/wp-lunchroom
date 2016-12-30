@@ -29,14 +29,12 @@ Use it to make something cool, have fun, and share what you've learned with othe
   line-height: 55px;
 }
 
+
 .lr-menu-login {
-  float: right;
-}
-.lr-menu-login .lr-menu-item-login {
   padding-left: 20px;
   margin-right: 24px;
 }
-.lr-menu-login .lr-menu-img {
+.lr-menu-login .lr-menu-login-icon {
   position: absolute;
   height: 24px;
   width: 24px;
@@ -44,11 +42,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
   -moz-transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
 }
-.lr-menu-login .lr-menu-img.lr-login {
+.lr-menu-login .lr-menu-login-icon.lr-login {
   top: 16px;
   left: 66px;
 } 
-.lr-menu-login .lr-menu-img.lr-logout {
+.lr-menu-login .lr-menu-login-icon.lr-logout {
   top: 16px;
   left: 80px;
 } 
@@ -176,6 +174,22 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 
 /* Mobile Optimizations */
+@media screen and (max-width: 1180px) {
+  .hs-main-navigation li.lr-menu-divider {
+    display: none;
+  }
+
+  .hs-main-navigation li.lr-menu-login {
+    padding-left: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .hs-main-navigation li.lr-menu-login a .lr-menu-login-icon {
+    display: none;
+  } 
+}
+
 @media only screen and (max-device-width: 780px) {
   .lr-twitch-wrapper {
     top: 0;

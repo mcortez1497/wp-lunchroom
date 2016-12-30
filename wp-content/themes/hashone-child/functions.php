@@ -23,8 +23,8 @@ function lunchroom_dynamic_styles(){
   // Twitch logo for Log In/Log Out nav button
   $twitch_icon = get_stylesheet_directory_uri() . '/images/twitch_icon_white_24.png';
   $twitch_icon_hover = get_stylesheet_directory_uri() . '/images/twitch_icon_orange_24.png';
-  echo '.lr-menu-img { background-image: url(' . $twitch_icon  . '); } ';
-  echo '.lr-menu-item-login:hover .lr-menu-img { background-image: url(' . $twitch_icon_hover  . '); } ';
+  echo '.lr-menu-login-icon { background-image: url(' . $twitch_icon  . '); } ';
+  echo '.lr-menu-login:hover .lr-menu-login-icon { background-image: url(' . $twitch_icon_hover  . '); } ';
   
 
   // Custom colors for Featured Images section
