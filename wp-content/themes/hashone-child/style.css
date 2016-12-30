@@ -179,6 +179,34 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 
+/* Knowledge Base */
+.hs-main-title a {
+ color: #FFFFFF;
+}
+
+.hs-main-title a:hover {
+ text-decoration: underline;
+}
+
+#kbe_container {
+  background: #f6f6f6;
+}
+
+.kbe_search_field {
+  text-align: center;
+  margin: 32px 0px;
+}
+
+.kbe_search_field input[type=text] {
+  font-size: 22px;
+  padding: 27px 17px 28px 60px;
+}
+
+#search-result {
+  margin: 0px;
+}
+
+
 /* Mobile Optimizations */
 @media screen and (max-width: 1180px) {
   .hs-main-navigation li.lr-menu-divider {
