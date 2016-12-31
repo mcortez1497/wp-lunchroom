@@ -260,7 +260,23 @@ i.lsicon:after {
 }
 
 
+/* 404 */
+.response-error-title {
+  text-align: center;
+  font-size: 20px;
+}
 
+.response-error-subtitle {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.response-error-code {
+  display: block;
+  text-align: center;
+  font-size: 200px;
+  line-height: 1.2;
+}
 
 
 /* Mobile Optimizations */
