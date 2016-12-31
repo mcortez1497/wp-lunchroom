@@ -207,6 +207,62 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 
+/* Footer */
+#wp-discord.wpd-dark {
+  color: none;
+  background: none;
+  padding: 0px 4px;
+}
+
+#wp-discord .wpd-head {
+  display: none;
+}
+
+#wp-discord .wpd-info a {
+  display: none; /* Hide Join button */
+}
+
+#wp-discord .wpd-info ul.wpd-users li {
+  padding: 0px;
+}
+
+
+.lsi-social-icons.icon-set-lsi_widget-2 li {
+  display: block !important;
+}
+
+.lsi-social-icons.icon-set-lsi_widget-2 li a {
+  width: 100%;
+  text-align: left;
+  padding: 4px 0px;
+}
+
+i.lsicon:after {
+  font-size: 15px;
+  font-style: normal;
+  vertical-align: top;
+}
+
+.lsicon-twitch:after {
+  content: " Twitch";
+}
+
+.lsicon-youtube:after {
+  content: " Youtube";
+}
+
+.lsicon-twitter:after {
+  content: " Twitter";
+}
+
+.lsicon-facebook:after {
+  content: " Facebook";
+}
+
+
+
+
+
 /* Mobile Optimizations */
 @media screen and (max-width: 1180px) {
   .hs-main-navigation li.lr-menu-divider {
