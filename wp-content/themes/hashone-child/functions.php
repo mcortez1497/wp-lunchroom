@@ -1,5 +1,7 @@
 <?php
 
+// require_once( get_stylesheet_directory_uri() . 'includes/twitch-player.php' );
+
 // BEGIN PARENT FUNCTIONS
 function my_theme_enqueue_styles() {
 
@@ -18,19 +20,23 @@ add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 
 
 // BEGIN CHILD FUNCTIONS
-function lunchroom_body_classes( $classes ) {
-	//The the page is a Forum page, display no sidebar
-	if (is_bbpress()) {
-		$classes[] = esc_attr('hs_no_sidebar');
-	}
-
-	return $classes;
+function lunchroom_bootstrap() { 
+  // locate_template( array( 'includes/twitch-player.php' ), true, true );
 }
+add_action( 'after_setup_theme', 'lunchroom_bootstrap' );
 
+function lunchroom_body_classes( $classes ) {
+  //The the page is a Forum page, display no sidebar
+  if (is_bbpress()) {
+    $classes[] = esc_attr('hs_no_sidebar');
+  }
+
+  return $classes;
+}
 add_filter( 'body_class', 'lunchroom_body_classes' );
 
-function lunchroom_dynamic_styles(){
-	echo "<style>";
+function lunchroom_dynamic_styles() {
+  echo "<style>";
 
   // Twitch logo for Log In/Log Out nav button
   $twitch_icon = get_stylesheet_directory_uri() . '/images/twitch_icon_white_24.png';
@@ -47,11 +53,9 @@ function lunchroom_dynamic_styles(){
     echo '.hs-featured-icon.icon-color-' . $i . ':after { border-top: 25px solid ' . $hashone_featured_page_icon_color  . '; } ';
   }
 
-	echo "</style>";
+  echo "</style>";
 }
-
 add_action( 'wp_head', 'lunchroom_dynamic_styles' );
 // END CHILD FUNCTIONS
-
 
 ?>

@@ -55,80 +55,80 @@ if(!empty($_GET['ajax']) ? $_GET['ajax'] : null) {
 </header><!-- .entry-header -->
 
 <div class="hs-container">
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
 
-    <div id="kbe_container">
+      <div id="kbe_container">
 
-    <!--Breadcrum-->
-    <?php
-        if(KBE_BREADCRUMBS_SETTING == 1){
-    ?>
-        <div class="kbe_breadcrum">
-            <?php echo kbe_breadcrumbs(); ?>
-        </div>
-    <?php
-        }
-    ?>
-    <!--/Breadcrum-->
+          <!--Breadcrum-->
+          <?php
+              if(KBE_BREADCRUMBS_SETTING == 1){
+          ?>
+              <div class="kbe_breadcrum">
+                  <?php echo kbe_breadcrumbs(); ?>
+              </div>
+          <?php
+              }
+          ?>
+          <!--/Breadcrum-->
+              
+          <!--content-->
+          <div id="kbe_content" <?php echo $kbe_content_class; ?>>
+          <?php
+              $kbe_search_term = $_GET['s'];
+          ?>
         
-    <!--content-->
-    <div id="kbe_content" <?php echo $kbe_content_class; ?>>
-    <?php
-        $kbe_search_term = $_GET['s'];
-    ?>
-	
-        <h1><?php _e('Search Results for: '.$kbe_search_term, 'kbe'); ?></h1>
+              <h1><?php _e('Search Results for: '.$kbe_search_term, 'kbe'); ?></h1>
 
-        <!--leftcol-->
-        <div class="kbe_leftcol" >
-            <!--<articles>-->
-            <div class="kbe_articles_search">
-                <ul>
-            <?php
-                while(have_posts()) :
-                    the_post();
-            ?>
-                <li>
-                    <a href="<?php the_permalink(); ?>">
-                        <?php the_title(); ?>
-                    </a>
-                    <span class="post-meta">
-                        Post By
-                        <?php the_author(); ?>
-                        | Date : <?php the_time('j F Y'); ?>
-                    </span>
-                    <p><?php echo kbe_short_content(300); ?></p>
-                    <div class="kbe_read_more">
-                        <a href="<?php the_permalink(); ?>">
-                            Read more...
-                        </a>
-                    </div>
-                </li>
-            <?php
-                endwhile;
-            ?>
-                </ul>
-            </div>
-        </div>
-        <!--/leftcol-->
+              <!--leftcol-->
+              <div class="kbe_leftcol" >
+                  <!--<articles>-->
+                  <div class="kbe_articles_search">
+                      <ul>
+                  <?php
+                      while(have_posts()) :
+                          the_post();
+                  ?>
+                      <li>
+                          <a href="<?php the_permalink(); ?>">
+                              <?php the_title(); ?>
+                          </a>
+                          <span class="post-meta">
+                              Post By
+                              <?php the_author(); ?>
+                              | Date : <?php the_time('j F Y'); ?>
+                          </span>
+                          <p><?php echo kbe_short_content(300); ?></p>
+                          <div class="kbe_read_more">
+                              <a href="<?php the_permalink(); ?>">
+                                  Read more...
+                              </a>
+                          </div>
+                      </li>
+                  <?php
+                      endwhile;
+                  ?>
+                      </ul>
+                  </div>
+              </div>
+              <!--/leftcol-->
 
-    </div>
-    
-    <!--aside-->
-    <div class="kbe_aside <?php echo $kbe_sidebar_class; ?>">
-    <?php
-        if((KBE_SIDEBAR_INNER == 2) || (KBE_SIDEBAR_INNER == 1)){
-            dynamic_sidebar('kbe_cat_widget');
-        }
-    ?>
-    </div>
-    <!--/aside-->
-    
-</div>
+          </div>
+          
+          <!--aside-->
+          <div class="kbe_aside <?php echo $kbe_sidebar_class; ?>">
+          <?php
+              if((KBE_SIDEBAR_INNER == 2) || (KBE_SIDEBAR_INNER == 1)){
+                  dynamic_sidebar('kbe_cat_widget');
+              }
+          ?>
+          </div>
+          <!--/aside-->
+          
+      </div>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
 
 <?php
