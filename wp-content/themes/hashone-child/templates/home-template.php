@@ -36,57 +36,10 @@ if(is_array($hashone_page_array)){
             echo '<img alt="'.esc_attr(get_the_title()).'" src="'.esc_url($hashone_slider_image[0]).'">';
           } ?>
 
-          <!-- TODO: Abstract -->
-          <div class="lr-twitch-wrapper">
-
           <?php
-          $url = 'https://api.twitch.tv/kraken/streams/followed';
-          // $url = 'https://api.twitch.tv/kraken/search/streams?query=Magic:%20The%20Gathering';
-
-          $ch = curl_init($url);
-          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-          curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Accept: application/vnd.twitchtv.v5+json',
-            'Client-ID: 243x69xvxlj4lyk7juy2riu8ml30p4',
-            'Authorization: OAuth gpnsx385cpzbw09jmt39ibo2arqiun'
-          ));
-
-          $data = curl_exec($ch);
-          curl_close($ch);
-
-          $json = json_decode($data);
-          $streams = $json->streams;
-
-          $html = "<div class='lr-twitch-player'>";
-
-          if ( !wp_is_mobile() ) {
-            $html .= "  <div class='lr-twitch-video'>"
-                  .  "    <iframe src='http://player.twitch.tv/?channel=" . $streams[0]->channel->name . "' height='349' width='620'"
-                  .  "            frameborder='0' scrolling='no' allowfullscreen='false'></iframe>"
-                  .  "  </div>";
-          }
-
-          $html .= "<div class='lr-channels'>";
-
-          foreach ($streams as $key=>$stream) {
-            $html .= "<div class='lr-channel " . ($key == 0 && !wp_is_mobile() ? "active" : "") . "'>"
-                  .  "  <img src=" .$stream->preview->medium . " alt='Stream' />"
-                  .  "  <div class='lr-channel-description'>"
-                      .  "    <div class='lr-channel-user'>" . $stream->channel->name . "</div>"
-                  .  "    <div class='lr-channel-playing'>playing " . $stream->channel->game . "</div>"
-                  .  "    <div class='lr-channel-status'>" . $stream->channel->status . "</div>"
-                  .  "  </div>"
-                  .  "</div>";
-          }
-
-          $html .= "  </div>"
-                .  "</div>";
-
-          echo $html;
-
+            $player = new Twitch_Player();
+            echo $player->render_widget();
           ?>
-
-          </div>
 
         </div>
         <?php

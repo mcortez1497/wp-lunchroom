@@ -21,7 +21,7 @@ add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 
 // BEGIN CHILD FUNCTIONS
 function lunchroom_bootstrap() { 
-  // locate_template( array( 'includes/twitch-player.php' ), true, true );
+  locate_template( array( 'includes/twitch-player.php' ), true, true );
 }
 add_action( 'after_setup_theme', 'lunchroom_bootstrap' );
 
