@@ -227,35 +227,35 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 
-.lsi-social-icons.icon-set-lsi_widget-2 li {
+.hs-footer .lsi-social-icons.icon-set-lsi_widget-2 li {
   display: block !important;
 }
 
-.lsi-social-icons.icon-set-lsi_widget-2 li a {
+.hs-footer .lsi-social-icons.icon-set-lsi_widget-2 li a {
   width: 100%;
   text-align: left;
   padding: 4px 0px;
 }
 
-i.lsicon:after {
+.hs-footer i.lsicon:after {
   font-size: 15px;
   font-style: normal;
   vertical-align: top;
 }
 
-.lsicon-twitch:after {
+.hs-footer .lsicon-twitch:after {
   content: " Twitch";
 }
 
-.lsicon-youtube:after {
+.hs-footer .lsicon-youtube:after {
   content: " Youtube";
 }
 
-.lsicon-twitter:after {
+.hs-footer .lsicon-twitter:after {
   content: " Twitter";
 }
 
-.lsicon-facebook:after {
+.hs-footer .lsicon-facebook:after {
   content: " Facebook";
 }
 
@@ -279,6 +279,99 @@ i.lsicon:after {
 }
 
 
+
+.hs-main-header.lr-member-header {
+  padding-top: 8px;
+}
+
+.lr-member-page .lr-member-banner {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.lr-member-page .lr-member-banner-image {
+  height: 380px;
+  background-color: white;
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.lr-member-page .lr-member-banner-image.missing {
+  background-repeat: repeat;
+  background-size: contain;
+}
+
+.lr-member-page .site-main {
+  margin-top: 100px;
+}
+
+.lr-member-page .lr-member-logo {
+  position: absolute;
+  top: -60px;
+  margin-left: 40px;
+}
+.lr-member-page .lr-member-logo img {
+  border: solid 2px white;
+}
+
+.lr-member-page .lr-member-logo .lr-member-name {
+  margin-left: 12px;
+  font-size: 66px;
+  vertical-align: bottom;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.lr-member-page #primary {
+  float: left;
+  position: relative;
+}
+.lr-member-page #secondary {
+  float: right;
+}
+
+.lr-member-page .lr-member-player {
+  margin-bottom: 20px;
+}
+
+.lr-member-page .lr-member-player iframe {
+  width: 100%;
+}
+
+.lr-member-page .widget.widget-social-icons {
+  margin-bottom: 55px;
+}
+.lr-member-page .lsi-social-icons a {
+  border-radius: 1px;
+  background: #444444 !important;
+  color: #FFFFFF !important;
+  font-size: 20px !important;
+}
+.lr-member-page .lsi-social-icons a:hover {
+  background: #777777 !important;
+  color: #FFFFFF !important;
+}
+
+
+.lr-hub-item {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.lr-hub-item .lr-hub-item-title {
+  display: inline;
+  margin-left: 12px;
+}
+.lr-hub-item .lr-hub-item-title a {
+  color: inherit;
+  vertical-align: middle;
+  font-size: 44px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+
+
 /* Mobile Optimizations */
 @media screen and (max-width: 1180px) {
   .hs-main-navigation li.lr-menu-divider {
@@ -294,6 +387,15 @@ i.lsicon:after {
   .hs-main-navigation li.lr-menu-login a .lr-menu-login-icon {
     display: none;
   } 
+}
+
+@media screen and (max-width: 768px) {
+  .lr-member-page .lr-member-logo {
+    top: -140px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+  }
 }
 
 @media only screen and (max-device-width: 780px) {
@@ -323,6 +425,26 @@ i.lsicon:after {
           -o-filter: grayscale(0%);
          -ms-filter: grayscale(0%);
              filter: grayscale(0%);
+  }
+
+
+  .lr-member-page .lr-member-logo {
+    top: -85px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+  }
+  .lr-member-page .lr-member-banner {
+    display: none;
+  }
+  .lr-member-page .lr-member-logo img {
+    width: 64px;
+  }
+  .lr-member-page .lr-member-logo .lr-member-name {
+    font-size: 32px;
+  }
+  .lr-member-page .site-main {
+    margin-top: 40px;
   }
 }
 

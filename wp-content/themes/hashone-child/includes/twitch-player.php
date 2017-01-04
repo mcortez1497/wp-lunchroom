@@ -2,7 +2,8 @@
 
 class Twitch_Player {
 
-  const TWITCH_API_URL = 'https://api.twitch.tv/kraken/search/streams?query=Magic:%20The%20Gathering';
+  // const TWITCH_API_URL = 'https://api.twitch.tv/kraken/search/streams?query=Magic:%20The%20Gathering';
+  const TWITCH_API_URL = 'https://api.twitch.tv/kraken/streams/followed';
   const TWITCH_API_CLIENT_ID = '243x69xvxlj4lyk7juy2riu8ml30p4';
   const TWITCH_API_AUTH_TOKEN = 'gpnsx385cpzbw09jmt39ibo2arqiun';
 

@@ -22,6 +22,7 @@ add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 // BEGIN CHILD FUNCTIONS
 function lunchroom_bootstrap() { 
   locate_template( array( 'includes/twitch-player.php' ), true, true );
+  locate_template( array( 'includes/twitch-channel.php' ), true, true );
 }
 add_action( 'after_setup_theme', 'lunchroom_bootstrap' );
 
@@ -37,6 +38,10 @@ add_filter( 'body_class', 'lunchroom_body_classes' );
 
 function lunchroom_dynamic_styles() {
   echo "<style>";
+
+  // Twitch default banner background
+  $twitch_default_bg = get_stylesheet_directory_uri() . '/images/twitch_default_bg.png';
+  echo '.lr-member-page .lr-member-banner-image { background-image: url(' . $twitch_default_bg  . '); } ';
 
   // Twitch logo for Log In/Log Out nav button
   $twitch_icon = get_stylesheet_directory_uri() . '/images/twitch_icon_white_24.png';
