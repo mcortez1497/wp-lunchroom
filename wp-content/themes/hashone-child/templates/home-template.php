@@ -137,9 +137,15 @@ if(is_array($hashone_page_array)){
     <div class="hs_client_logo_slider">
     <?php
     foreach ($hashone_client_logo_image as $hashone_client_logo_image_single) {
+      $attachment_caption = get_post($hashone_client_logo_image_single)->post_excerpt;
+      if ($attachment_caption) {
       ?>
-      <img alt="<?php _e('logo','hashone') ?>" src="<?php echo esc_url(wp_get_attachment_url($hashone_client_logo_image_single)); ?>">
-      <?php
+        <a href="<?php echo esc_url($attachment_caption); ?>">
+          <img alt="<?php _e('logo','hashone') ?>" src="<?php echo esc_url(wp_get_attachment_url($hashone_client_logo_image_single)); ?>">
+        </a>
+      <?php } else { ?>
+        <img alt="<?php _e('logo','hashone') ?>" src="<?php echo esc_url(wp_get_attachment_url($hashone_client_logo_image_single)); ?>">
+      <?php }
     }
     ?>
     </div>
