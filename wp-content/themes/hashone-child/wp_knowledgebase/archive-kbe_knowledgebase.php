@@ -1,5 +1,5 @@
 <?php
-    get_header('kb');
+    get_header();
     global $wpdb;
     
     // load the style and script
@@ -35,7 +35,7 @@
   </div>
 </header><!-- .entry-header -->
 
-<div class="hs-container">
+<div class="hs-container kbe">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
 

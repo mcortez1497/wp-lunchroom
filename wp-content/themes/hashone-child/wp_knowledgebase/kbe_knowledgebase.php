@@ -2,7 +2,7 @@
     /*=========
     Template Name: KBE
     =========*/
-    get_header('kb');
+    get_header();
     
     // load the style and script
     wp_enqueue_style ( 'kbe_theme_style' );
@@ -40,7 +40,7 @@
   </div>
 </header><!-- .entry-header -->
 
-<div class="hs-container">
+<div class="hs-container kbe">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
 

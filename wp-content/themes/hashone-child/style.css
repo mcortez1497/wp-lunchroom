@@ -232,6 +232,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 
 /* Knowledge Base */
+.hs-container.kbe #primary {
+  width: 100%;
+  float: none;
+}
+
 .hs-main-title a {
  color: #FFFFFF;
 }
