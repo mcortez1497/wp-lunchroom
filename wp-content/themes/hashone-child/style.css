@@ -80,8 +80,15 @@ Use it to make something cool, have fun, and share what you've learned with othe
   display: none;
 }
 
+#wp-discord .wpd-info span {
+  line-height: initial;
+}
+
 #wp-discord .wpd-info a {
-  display: none; /* Hide Join button */
+  font-size: 11px;
+  font-weight: normal;
+  padding: 4px 8px;
+  line-height: 1.4;
 }
 
 #wp-discord .wpd-info ul.wpd-users li {
