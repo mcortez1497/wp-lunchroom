@@ -57,7 +57,6 @@
           ) ); 
           ?>
 
-          <!-- TODO: Abstract -->
           <li class="lr-menu-divider">
             <div class="lr-divider"></div>
           </li>
