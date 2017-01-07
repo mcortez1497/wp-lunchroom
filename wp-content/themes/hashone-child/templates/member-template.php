@@ -18,8 +18,15 @@ get_header();
 
 <div class="hs-container lr-member-page">
 
+  <?php if (isset($channel->channel_data->error)) { ?>
+  <div class="lr-member-error">
+    <h4>The channel data could not be loaded from Twitch. Contact an administrator if you're seeing this.</h4>
+    <h6>Error <?php echo $channel->channel_data->status ?>: <?php echo $channel->channel_data->message ?></h6>
+  </div>
+  <?php } ?>
+
   <div class="lr-member-banner">
-    <?php if ($channel->channel_data->profile_banner) { ?>
+    <?php if (isset($channel->channel_data->profile_banner)) { ?>
     <div class="lr-member-banner-image" style="background-image: url('<?php echo esc_url($channel->channel_data->profile_banner); ?>')"></div>
     <?php } else { ?>
     <div class="lr-member-banner-image missing"></div>
@@ -29,16 +36,20 @@ get_header();
   <div id="primary" class="content-area">
 
     <div class="lr-member-logo">
+      <?php if (isset($channel->channel_data->logo)) { ?>
       <img src="<?php echo esc_url($channel->channel_data->logo); ?>" alt="" width="128" height="128" />
+      <?php } else { ?>
+      <img src="<?php echo esc_url(get_stylesheet_directory_uri().'/images/missing_profile_128.png'); ?>" alt="" width="128" height="128" />
+    <?php } ?>
       <span class="lr-member-name">
-        <?php echo $channel->channel_data->name ?>
+        <?php echo (isset($channel->channel_data->name) ? $channel->channel_data->name : the_title()); ?>
       </span>
     </div>
 
     <main id="main" class="site-main" role="main">
 
     <div class="lr-member-player">
-      <iframe src="http://player.twitch.tv/?channel=<?php echo $channel->channel_data->name ?>" height="378" width="620" frameborder="0" scrolling="no" allowfullscreen="false"></iframe>
+      <iframe src="http://player.twitch.tv/?channel=<?php echo (isset($channel->channel_data->name) ? $channel->channel_data->name : the_title()); ?>" height="378" width="620" frameborder="0" scrolling="no" allowfullscreen="false"></iframe>
     </div>
 
     <?php while ( have_posts() ) : the_post(); ?>

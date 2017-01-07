@@ -382,6 +382,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
   color: #FFFFFF !important;
 }
 
+.lr-member-page .lr-member-error {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.lr-member-page .lr-member-error h6 {
+  color: #bf2222;
+}
+
 
 /* Mobile Optimizations */
 @media screen and (max-width: 1180px) {
