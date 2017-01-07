@@ -1,7 +1,5 @@
 <?php
 
-// require_once( get_stylesheet_directory_uri() . 'includes/twitch-player.php' );
-
 // BEGIN PARENT FUNCTIONS
 function my_theme_enqueue_styles() {
 

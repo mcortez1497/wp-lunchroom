@@ -24,7 +24,7 @@ get_header(); ?>
     <?php endwhile; // End of the loop. ?>
 
 
-    <div class="lr-hub-container">
+    <div class="lr-sub-container">
     <?php 
       $pages = get_pages(array(
         'meta_key' => '_wp_page_template',
@@ -34,9 +34,9 @@ get_header(); ?>
 
       foreach($pages as $page) {
     ?>
-      <div class="lr-hub-item">
+      <div class="lr-sub-item">
         <?php echo get_the_post_thumbnail( $page, array(96, 96) ); ?>
-        <div class="lr-hub-item-title">
+        <div class="lr-sub-item-title">
           <a href="<?php echo get_permalink( $page ) ?>"><?php echo $page->post_name; ?></a>
         </div>
       </div>

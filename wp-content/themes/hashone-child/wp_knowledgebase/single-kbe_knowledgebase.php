@@ -69,7 +69,7 @@
                   ?>
                           <div class="kbe_reply">
                   <?php
-                              comments_template("wp_knowledgebase/kbe_comments.php");
+                              comments_template("/wp_knowledgebase/kbe_comments.php");
                   ?>
                           </div> 
               <?php
