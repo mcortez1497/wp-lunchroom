@@ -29,6 +29,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
   line-height: 55px;
 }
 
+#hs-home-slider-section {
+  background: #444444;
+}
+
 #hs-home-slider-section .bx-wrapper .bx-viewport {
   max-height: 620px;
 }
@@ -436,8 +440,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
   }
 }
 
-@media only screen and (max-device-width: 780px) {
+@media only screen and (max-device-width: 1024px) {
+  .page-template-home-template #hs-masthead {
+    position: relative !important;
+    background: #111 !important;
+  }
+
   .lr-twitch-wrapper {
+    position: relative;
     top: 0;
     height: 100%;
     width: 100%;
@@ -459,7 +469,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
   .lr-channels {
     height: 100%;
     width: 100%;
-    padding-left: 10px;
+    text-align: center;
   }
 
   .lr-channel:not(.active) img {
@@ -470,12 +480,12 @@ Use it to make something cool, have fun, and share what you've learned with othe
              filter: grayscale(0%);
   }
 
-
   .lr-member-page .lr-member-logo {
-    top: -85px;
+    top: 0;
     width: 100%;
     margin: auto;
     text-align: center;
+    position: relative;
   }
   .lr-member-page .lr-member-banner {
     display: none;
@@ -492,6 +502,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
 }
 
 @media only screen and (max-device-width: 320px) {
+  .lr-channel {
+    min-width: 300px;
+  }
+
   .lr-channel-description {
     width: 160px;
   }

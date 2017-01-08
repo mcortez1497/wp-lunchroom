@@ -7,6 +7,8 @@
 
 get_header(); 
 
+$player = new Twitch_Player();
+
 $hashone_page = '';
 $hashone_page_array = get_pages();
 if(is_array($hashone_page_array)){
@@ -15,39 +17,46 @@ if(is_array($hashone_page_array)){
 ?>
 
 <section id="hs-home-slider-section">
-  <div id="hs-bx-slider">
-  <?php for ($i=1; $i < 4; $i++) {  
-    $hashone_slider_page_id = get_theme_mod( 'hashone_slider_page'.$i );
 
-    if($hashone_slider_page_id){
-      $args = array( 
-        'page_id' => absint($hashone_slider_page_id) 
-      );
-      $query = new WP_Query($args);
-      if( $query->have_posts() ):
-        while($query->have_posts()) : $query->the_post();
-        ?>
-        <div class="hs-slide">
-          <div class="hs-slide-overlay"></div>
+  <?php if ( wp_is_mobile() ) {
 
-          <?php 
-          if(has_post_thumbnail()){
-            $hashone_slider_image = wp_get_attachment_image_src(get_post_thumbnail_id(),'full');	
-            echo '<img alt="'.esc_attr(get_the_title()).'" src="'.esc_url($hashone_slider_image[0]).'">';
-          } ?>
+    echo $player->render_widget();
 
-          <?php
-            $player = new Twitch_Player();
-            echo $player->render_widget();
+  } else { ?>
+
+    <div id="hs-bx-slider">
+    <?php for ($i=1; $i < 4; $i++) {  
+      $hashone_slider_page_id = get_theme_mod( 'hashone_slider_page'.$i );
+
+      if($hashone_slider_page_id){
+        $args = array( 
+          'page_id' => absint($hashone_slider_page_id) 
+        );
+        $query = new WP_Query($args);
+        if( $query->have_posts() ):
+          while($query->have_posts()) : $query->the_post();
           ?>
+          <div class="hs-slide">
+            <div class="hs-slide-overlay"></div>
 
-        </div>
-        <?php
-        endwhile;
-      endif;
-    }
-  } ?>
-  </div>
+            <?php 
+            if(has_post_thumbnail()){
+              $hashone_slider_image = wp_get_attachment_image_src(get_post_thumbnail_id(),'full');	
+              echo '<img alt="'.esc_attr(get_the_title()).'" src="'.esc_url($hashone_slider_image[0]).'">';
+            } ?>
+
+            <?php echo $player->render_widget(); ?>
+
+          </div>
+          <?php
+          endwhile;
+        endif;
+      }
+    } ?>
+    </div>
+
+  <?php } ?>
+
 </section>
 
 <?php if( get_theme_mod('hashone_disable_featured_sec') != 'on' ){ ?>
