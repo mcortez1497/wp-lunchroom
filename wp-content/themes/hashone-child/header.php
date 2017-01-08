@@ -37,9 +37,6 @@
           <?php else : ?>
           <p class="hs-site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
           <?php endif; ?>
-          
-          <p class="hs-site-description"><?php bloginfo( 'description' ); ?></p>
-          
         <?php endif; // End header image check. ?>
       </div><!-- .site-branding -->
 
