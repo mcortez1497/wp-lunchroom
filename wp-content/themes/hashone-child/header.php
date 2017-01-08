@@ -17,6 +17,7 @@
 <?php wp_head(); ?>
 
 <script type="text/javascript" src="/wp-content/themes/hashone-child/js/twitch-player.js"></script>
+<script type="text/javascript" src="/wp-content/themes/hashone-child/js/discord-widget.js"></script>
 
 </head>
 

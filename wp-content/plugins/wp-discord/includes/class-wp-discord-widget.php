@@ -139,12 +139,12 @@ class WP_Discord_Follow_Widget extends WPH_Widget
         }
 
         if ($member_count != 0 && count($users_online) > 0) {
-            $users_online = self::member_shuffle($users_online);
+            // $users_online = self::member_shuffle($users_online);
             $user_counter = 0;
             $output .= '<ul class="wpd-users">';
 
             foreach ($users_online as $user) {
-                $user_counter++;
+                // $user_counter++;
                 $output .= '<li><img src="' . str_replace('https://', '//', $user->avatar_url) . '"><strong>' . $user->username . '</strong><span class="wpd-status ' . $user->status . '"></span></li>';
 
                 if ($member_count != -1 && $user_counter >= $member_count) {
@@ -154,6 +154,8 @@ class WP_Discord_Follow_Widget extends WPH_Widget
 
             $output .= '</ul>';
         }
+
+        $output .= '<div class="lr-discord-toggle">Show All <i class="fa fa-chevron-down"></i></div>' . PHP_EOL;
 
         $output .= '</div>' . PHP_EOL;
         $output .= '</div>' . PHP_EOL;
