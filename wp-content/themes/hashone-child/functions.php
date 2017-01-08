@@ -18,6 +18,13 @@ add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 
 
 // BEGIN CHILD FUNCTIONS
+function remove_admin_bar() {
+  if (!current_user_can('administrator') && !is_admin()) {
+    show_admin_bar(false);
+  }
+}
+add_action('after_setup_theme', 'remove_admin_bar');
+
 function lunchroom_bootstrap() { 
   locate_template( array( 'includes/twitch-player.php' ), true, true );
   locate_template( array( 'includes/twitch-channel.php' ), true, true );
@@ -25,7 +32,7 @@ function lunchroom_bootstrap() {
 add_action( 'after_setup_theme', 'lunchroom_bootstrap' );
 
 function lunchroom_body_classes( $classes ) {
-  //The the page is a Forum page, display no sidebar
+  //If the page is a Forum page, display no sidebar
   if (is_bbpress()) {
     $classes[] = esc_attr('hs_no_sidebar');
   }
