@@ -23,7 +23,6 @@ get_header(); ?>
 
     <?php endwhile; // End of the loop. ?>
 
-
     <div class="lr-sub-container">
     <?php 
       $pages = get_pages(array(
@@ -33,14 +32,20 @@ get_header(); ?>
       ));
 
       foreach($pages as $page) {
+        $channel = new Twitch_Channel( $page->post_name );
+
+        if (!isset($channel->channel_data->error)) {
     ?>
       <div class="lr-sub-item">
-        <?php echo get_the_post_thumbnail( $page, array(96, 96) ); ?>
+        <img src="<?php echo esc_url($channel->channel_data->logo); ?>" alt="Profile Logo" width="96" height="96" />
         <div class="lr-sub-item-title">
           <a href="<?php echo get_permalink( $page ) ?>"><?php echo $page->post_name; ?></a>
         </div>
       </div>
-    <?php } ?>
+    <?php 
+        } 
+      } 
+    ?>
     </div>
 
     </main><!-- #main -->
